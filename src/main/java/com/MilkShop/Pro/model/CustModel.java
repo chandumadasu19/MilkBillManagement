@@ -21,4 +21,5 @@ public class CustModel {
 	int id;
 	String name;
 	long number;
+	boolean isDel=true;
 }

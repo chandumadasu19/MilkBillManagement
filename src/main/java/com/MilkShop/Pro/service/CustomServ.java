@@ -3,6 +3,7 @@ package com.MilkShop.Pro.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.MilkShop.Pro.Request.CustDel;
 import com.MilkShop.Pro.model.CustModel;
 import com.MilkShop.Pro.repo.CustRepo;
 
@@ -21,5 +22,20 @@ public class CustomServ {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 		
+	}
+
+	public CustModel delCust(int id) {
+		
+		return repo.delById(id);
+	}
+
+	public CustModel updateCust(CustDel cust) {
+		CustModel res = findById(cust.getId());
+		if(res !=null) {
+			res.setName(cust.getName());
+			res.setNumber(cust.getNumber());
+			return repo.save(res);	
+			}
+		return null;
 	}
 }
