@@ -22,6 +22,7 @@ public class CustomServ {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 		
+		
 	}
 
 	public CustModel delCust(int id) {
